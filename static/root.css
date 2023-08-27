@@ -1,4 +1,7 @@
 :root {
     --galaxy-dark-blue: #0f3e52;
+    --galaxy-purple: #9500E4;
+    --galaxy-white: #ececec;
     --default-border-radius: 15px;
+    --default-font: Tahoma, sans-serif;
 }

@@ -27,18 +27,36 @@ div {
     padding-left: 15px;
     padding-right: 15px;
 }
+
+.description {
+    border-top: 3px solid var(--galaxy-white);
+    border-radius: var(--default-border-radius);
+    border-bottom: 3px solid var(--galaxy-white);
+    font-family: var(--default-font);
+    color: var(--galaxy-white);
+    background-color: var(--galaxy-purple);
+    padding:5px;
+}
 </style>
 
 <script>
-function handleClick() {
-    console.log("This button is working");
+async function handleClick() {
+    let endpoint = `http://192.168.0.123:7878/play/${id}`;
+    let response = await fetch(endpoint);
 }
+
+export let id;
+export let name;
+export let description;
+export let duration;
 </script>
 
 <div>
-    <p class="title">A very, very large title, that should not fit in a single movie</p>
-    <p>A very, very large author name, that should not fit in a single movie</p>
-    <p>Duration 1</p>
+    <p class="title">{name}</p>
+    <p class="description">{description}</p>
+    <p class="duration">{duration}</p>
     <p>Image 1</p>
-    <button on:click={handleClick}>Play</button>
+    <a href="/player">
+        <button on:click={handleClick}>Play</button>
+    </a>
 </div>
