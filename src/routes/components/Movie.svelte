@@ -1,42 +1,62 @@
 <style>
-button {
-    background-color: var(--galaxy-dark-blue);
-    color: white;
-    border-radius: var(--default-border-radius);
-    border-style: None;
-    padding-top: 3px;
-    padding-bottom: 3px;
-    padding-left: 7px;
-    padding-right: 7px;
-    text-align: center;
+a {
+    display: flex;
+    justify-content: center;
 }
 
 div {
-    border: black solid;
+    border: var(--galaxy-white) solid;
     border-radius: var(--default-border-radius);
+    border-width: 1px;
     margin: 10px;
-    padding: 10px;
 }
 
 .title {
-    border-radius: var(--default-border-radius); 
-    background-color: var(--galaxy-dark-blue);
-    color: white;
+    background-color: var(--galaxy-blue);
+    font-family: var(--default-font);
+    color: var(--galaxy-white);
     padding-top: 7px;
     padding-bottom: 7px;
     padding-left: 15px;
     padding-right: 15px;
 }
 
-.description {
-    border-top: 3px solid var(--galaxy-white);
-    border-radius: var(--default-border-radius);
-    border-bottom: 3px solid var(--galaxy-white);
-    font-family: var(--default-font);
-    color: var(--galaxy-white);
-    background-color: var(--galaxy-purple);
-    padding:5px;
+div.metadata {
+    display: flex;
+    background-color: var(--galaxy-dark-blue);
+    border-style: None;
+    justify-content: space-around;
+    align-items: center;
+    height: 25px;
 }
+
+div.duration {
+    display: flex;
+    border-style: None;
+    align-items: center;
+}
+
+p.duration {
+    color: var(--galaxy-white);
+    font-family: var(--default-font);
+    text-align: center;
+}
+
+img.duration {
+    margin-right: 15px;
+    border-radius: var(--default-border-radius);
+}
+
+img {
+    width: 25px;
+    height: 25px;
+}
+
+button {
+    background-color: var(--galaxylight-blue);
+    border-style: None;
+}
+
 </style>
 
 <script>
@@ -47,16 +67,18 @@ async function handleClick() {
 
 export let id;
 export let name;
-export let description;
 export let duration;
 </script>
 
 <div>
     <p class="title">{name}</p>
-    <p class="description">{description}</p>
-    <p class="duration">{duration}</p>
-    <p>Image 1</p>
-    <a href="/player">
-        <button on:click={handleClick}>Play</button>
-    </a>
+    <div class="metadata">
+        <a href="/player">
+            <button on:click={handleClick}><img src="play.png" /></button>
+        </a>
+        <div class="duration">
+            <img class="duration" src="clock.png" />
+            <p class="duration">{duration}</p>
+        </div>
+    </div>
 </div>

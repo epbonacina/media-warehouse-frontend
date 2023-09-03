@@ -1,16 +1,27 @@
 <style>
+div.title {
+    display: flex;    
+}
+
 h3 {
+    display: flex;
+    width: 150px;
     background-color: var(--galaxy-dark-blue);
-    color:white;
-    border-radius: var(--default-border-radius);
+    color: var(--galaxy-white);
+    font-family: var(--default-font);
+    border-top-left-radius: 15px;
+    border-bottom-left-radius: 15px;
+    border-top-right-radius: 45px;
+    border-bottom-right-radius: 45px;
     text-align: center;
     padding-top: 2px;
     padding-bottom: 2px;
+    padding-left:15px;
 }
 
 ul {
     list-style: none;
-    background-color: pink;
+    background-color: var(--galaxy-dark-blue);
     border-radius: var(--default-border-radius);
     display: flex;
     flex-flow: row wrap;
@@ -33,8 +44,9 @@ onMount(async function () {
     files = await response.json();
 });
 </script>
-
-<h3>My galery</h3>
+<div clas="title">
+    <h3>My galery</h3>
+</div>
 <div>
     <ul>
         {#each files as movie}
@@ -42,7 +54,6 @@ onMount(async function () {
                 <Movie 
                        id={movie["id"]}
                        name={movie["name"]} 
-                       description={movie["description"]} 
                        duration={movie["duration"]}
                 />
             </li>
